@@ -12,6 +12,9 @@
         <Label Content="Name" HorizontalAlignment="Left" Margin="98,104,0,0" VerticalAlignment="Top" Width="87"/>
         <Label Content="Project url" HorizontalAlignment="Left" Margin="98,135,0,0" VerticalAlignment="Top" Width="87"/>
         <Label Content="Extra infos" HorizontalAlignment="Left" Margin="98,166,0,0" VerticalAlignment="Top" Width="87"/>
+        <TextBox HorizontalAlignment="Left" x:Name="nameProject" Margin="190,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328"/>
+        <TextBox HorizontalAlignment="Left" x:Name="projectUrl" Margin="190,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328"/>
+        <TextBox HorizontalAlignment="Left" x:Name="extraInfos" Margin="190,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328"/>
 
 
 
