@@ -1,4 +1,5 @@
-﻿using System;
+﻿using license_helper.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,9 +19,10 @@ namespace license_helper
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
         private static MainWindow _MainWindow;
+        public static List<Project> Projects { get; set; } = new List<Project>();
         public MainWindow()
         {
             InitializeComponent();

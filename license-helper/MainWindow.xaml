@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="License-Helper" Height="450" Width="800">
     <Grid Background="WhiteSmoke">
-        <Frame x:Name="Pages"/>
+        <Frame x:Name="Pages" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>

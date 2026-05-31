@@ -8,8 +8,8 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Start">
 
-    <Grid>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Projects" Margin="266,72,266,259"/>
+    <Grid Background="WhiteSmoke">
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="projects" Margin="266,72,266,259" MouseDoubleClick="projects_Clicked"/>
         <Label Content="Projects" HorizontalAlignment="Center" Margin="0,41,0,0" VerticalAlignment="Top" Width="268"/>
         <Button Content="Add new project" Click="Button_Click" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top" Width="268"/>
 

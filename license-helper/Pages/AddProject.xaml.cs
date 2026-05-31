@@ -1,4 +1,5 @@
-﻿using System;
+﻿using license_helper.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,26 @@ namespace license_helper.Pages
         public AddProject()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(nameProject.Text == "" && 
+               projectUrl.Text == "")
+            {
+                MessageBox.Show("All fields are requierd");
+                return;
+            }
+
+            if(MainWindow.Projects.Any(x => x.Name.Normalize() == nameProject.Text.Normalize()))
+            {
+                MessageBox.Show("Project already exists");
+                return;
+            }
+
+            MainWindow.Projects.Add(new Project { Name = nameProject.Text,ExtraInfos = extraInfos.Text, ProjectUrl = projectUrl.Text, Version = version.Text });
+
+            MainWindow.Navigate(new Start());
         }
     }
 }
