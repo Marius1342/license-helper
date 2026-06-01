@@ -46,6 +46,11 @@ namespace license_helper.Windows
                 return;
             }
 
+            //Check if packet already exists
+            if (MainWindow.Projects[index].Projects.Any(x => x.Name == Name.Text)){
+                MessageBox.Show($"Packet '{Name.Text}' already exists");
+                return;
+            }
 
 
             MainWindow.Projects[index].Projects.Add(new Classes.Packet()
@@ -57,6 +62,7 @@ namespace license_helper.Windows
             });
 
 
+            LegalText.Document.Blocks.Clear();
             Version.Text = "";
             Name.Text = "";
             Url.Text = "";
