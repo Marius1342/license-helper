@@ -64,6 +64,9 @@
     <Compile Include="Windows\AddPacket.xaml.cs">
       <DependentUpon>AddPacket.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\EditPacket.xaml.cs">
+      <DependentUpon>EditPacket.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,6 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddPacket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditPacket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,6 +133,12 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="templates\Template2.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\Template2.tmplt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="templates\Template1.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

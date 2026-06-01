@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace license_helper.Services
 {
@@ -27,10 +28,15 @@ namespace license_helper.Services
                 {
                     Name = nameLine.Where(x => x.StartsWith("Name=")).FirstOrDefault()?.Substring("Name=".Length),
                     Uid = nameLine.Where(x => x.StartsWith("Uid=")).FirstOrDefault()?.Substring("Uid=".Length),
-                    TemplateFile = nameLine.Where(x => x.StartsWith("TemplateFile=")).FirstOrDefault()?.Substring("TemplateFile=".Length)
+                    TemplateFile = nameLine.Where(x => x.StartsWith("TemplateFile=")).FirstOrDefault()?.Substring("TemplateFile=".Length),
+                    Header = nameLine.Where(x => x.StartsWith("Header=")).FirstOrDefault()?.Substring("Header=".Length)?.Replace("\\n", Environment.NewLine)
                 };
 
-
+                if (iniFiles.Any(x => x.Uid == iniFile.Uid))
+                {
+                    MessageBox.Show($"Guid already taken: {iniFile.Name} {iniFile.Uid}");
+                    continue;
+                }
                 iniFiles.Add(iniFile);
 
             }
@@ -50,11 +56,10 @@ namespace license_helper.Services
             List<string> lines = new List<string>();
 
             lines.Add("Generated with: https://github.com/Marius1342/license-helper");
-            lines.Add("No license needed for this tool here ;)");
-
+            lines.Add(inIFile.Header);
             foreach (Packet packet in project.Projects)
             {
-                lines.Add("-".PadRight(20, '-'));
+                lines.Add("-".PadRight(35, '-'));
 
                 string template = File.ReadAllText(Path.Combine(mTemplateFolder, inIFile.TemplateFile));
                 template = ReplaceWithDataTempalte(template, "<NameOfProject>", packet.Name);

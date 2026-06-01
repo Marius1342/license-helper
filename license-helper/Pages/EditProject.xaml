@@ -20,11 +20,11 @@
         <Button Content="Save" HorizontalAlignment="Left" Margin="131,174,0,0" VerticalAlignment="Top" Width="328" Click="Button_Click"/>
         <Button Content="Main menue" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_1"/>
         <Button Content="Add new packet" HorizontalAlignment="Left" Margin="237,225,0,0" VerticalAlignment="Top" Width="116" Click="addNewPacket"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="packets" Margin="614,225,10,10"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="packets" Margin="614,225,10,10" SelectionChanged="packets_SelectionChanged"/>
         <TextBox HorizontalAlignment="Left" x:Name="namePacket" Margin="642,202,0,0" TextWrapping="Wrap" Text="name of packet" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" x:Name="templates" Margin="39,295,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Export settings" HorizontalAlignment="Left" Margin="39,264,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Export" x:Name="export" HorizontalAlignment="Left" Margin="79,323,0,0" VerticalAlignment="Top" Click="Export_Click"/>
+        <ComboBox HorizontalAlignment="Left" x:Name="templates" Margin="92,320,0,0" VerticalAlignment="Top" Width="405"/>
+        <Label Content="Export" HorizontalAlignment="Left" Margin="268,289,0,0" VerticalAlignment="Top" Width="53"/>
+        <Button Content="Export" x:Name="export" HorizontalAlignment="Left" Margin="276,348,0,0" VerticalAlignment="Top" Click="Export_Click"/>
 
 
 

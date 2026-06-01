@@ -42,7 +42,7 @@ namespace license_helper.Pages
             {
                 templates.Items.Add(file.Name + file.Uid);
 
-                if (MainWindow.Projects[indexOfProject].TemplateGuid != "")
+                if (MainWindow.Projects[indexOfProject].TemplateGuid == file.Uid)
                 {
                     templates.SelectedIndex = templates.Items.Count;
                 }
@@ -113,5 +113,19 @@ namespace license_helper.Pages
             }
         }
 
+        private void packets_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(packets.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            EditPacket editPacket = new EditPacket(MainWindow.Projects[_indexOfProject].Projects[packets.SelectedIndex], MainWindow.Projects[_indexOfProject]);
+            editPacket.ShowDialog();
+
+            LoadAllPackets();
+
+            DbService.Save();
+        }
     }
 }
