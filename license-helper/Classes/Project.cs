@@ -13,6 +13,16 @@ namespace license_helper.Classes
         public string ExtraInfos { get; set; }
         public string ProjectUrl { get; set; }
         public string Version { get; set; }
+        public string TemplateGuid { get; set; } = "";
         public List<Packet> Projects { get; set; } = new List<Packet>();
+
+        public static string ToJson(Project[] projects)
+        {
+           return Newtonsoft.Json.JsonConvert.SerializeObject(projects);
+        }
+        public static Project[] ToArrayFromJson(string json)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Project[]>(json);
+        }
     }
 }

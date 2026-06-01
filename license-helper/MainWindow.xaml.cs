@@ -1,4 +1,5 @@
 ﻿using license_helper.Classes;
+using license_helper.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace license_helper
         {
             InitializeComponent();
             _MainWindow = this;
+            DbService.LoadProjects();
             Navigate(new license_helper.Pages.Start());
         }
 

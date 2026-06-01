@@ -8,8 +8,9 @@ namespace license_helper.Classes
 {
     public class Packet
     {
-        public string Name { get; set;  }
-        public string Url { get; set; }
-        public string LegalText { get; set; }
+        public string Name { get; set;  } = "";
+        public string Url { get; set; } = "";
+        public string Version { get; set; } = "";
+        public string LegalText { get; set; } = "";
     }
 }

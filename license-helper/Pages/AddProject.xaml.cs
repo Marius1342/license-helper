@@ -1,4 +1,5 @@
 ﻿using license_helper.Classes;
+using license_helper.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,8 @@ namespace license_helper.Pages
 
             MainWindow.Projects.Add(new Project { Name = nameProject.Text,ExtraInfos = extraInfos.Text, ProjectUrl = projectUrl.Text, Version = version.Text });
 
+
+            DbService.Save();
             MainWindow.Navigate(new Start());
         }
     }

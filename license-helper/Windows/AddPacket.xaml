@@ -13,12 +13,12 @@
         <Label Content="Url" HorizontalAlignment="Left" Margin="151,84,0,0" VerticalAlignment="Top"/>
 
         <TextBox HorizontalAlignment="Left" Margin="194,42,0,0" TextWrapping="Wrap" x:Name="Name" Text="" VerticalAlignment="Top" Width="557"/>
-        <TextBox HorizontalAlignment="Left" Margin="194,88,0,0" TextWrapping="Wrap" x:Name="Url" Text="" VerticalAlignment="Top" Width="557"/>
         <TextBox HorizontalAlignment="Left" Margin="194,65,0,0" TextWrapping="Wrap" x:Name="Version" Text="" VerticalAlignment="Top" Width="557"/>
-        <RichTextBox Margin="194,111,49,165">
-            <FlowDocument>
-                <Paragraph>
-                    <Run x:Name="LegalText" Text=""/>
+        <TextBox HorizontalAlignment="Left" Margin="194,88,0,0" TextWrapping="Wrap" x:Name="Url" Text="" VerticalAlignment="Top" Width="557"/>
+        <RichTextBox Margin="194,111,49,165" x:Name="LegalText">
+            <FlowDocument >
+                <Paragraph >
+                    <Run Text=""/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>

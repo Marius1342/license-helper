@@ -1,4 +1,5 @@
-﻿using System;
+﻿using license_helper.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,22 +34,30 @@ namespace license_helper.Windows
 
         private void Add(object sender, RoutedEventArgs e)
         {
-            if(LegalText.Text == "" || Name.Text == "" || Url.Text == "")
+
+
+            TextRange textRange = new TextRange(
+       LegalText.Document.ContentStart,
+       LegalText.Document.ContentEnd
+   );
+
+            if (textRange.Text == "" || Name.Text == "" || Url.Text == "")
             {
                 return;
             }
 
 
+
             MainWindow.Projects[index].Projects.Add(new Classes.Packet()
             {
-                LegalText = LegalText.Text,
+                LegalText = textRange.Text,
                 Name = Name.Text,
                 Url = Url.Text,
+                Version = Version.Text
             });
 
 
-
-            LegalText.Text = "";
+            Version.Text = "";
             Name.Text = "";
             Url.Text = "";
         }
