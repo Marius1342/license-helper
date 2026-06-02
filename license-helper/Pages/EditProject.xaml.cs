@@ -103,11 +103,24 @@ namespace license_helper.Pages
         
         }
 
+        private IEnumerable<Packet> GetPackets()
+        {
+            IEnumerable<Packet> Ipackets = MainWindow.Projects[_indexOfProject].Projects;
+
+            if (namePacket.Text != "")
+            {
+                Ipackets = Ipackets.OrderBy(x => x.Name.Normalize().ToLower().StartsWith(namePacket.Text.Normalize().ToLower())).Reverse();
+            }
+            return Ipackets;    
+        }
 
         private void LoadAllPackets()
         {
             packets.Items.Clear();
-            foreach (var item in MainWindow.Projects[_indexOfProject].Projects.Select(x => x.Name))
+
+            
+
+            foreach (var item in GetPackets().Select(x => x.Name))
             {
                 packets.Items.Add(item);
             }
@@ -120,12 +133,17 @@ namespace license_helper.Pages
                 return;
             }
 
-            EditPacket editPacket = new EditPacket(MainWindow.Projects[_indexOfProject].Projects[packets.SelectedIndex], MainWindow.Projects[_indexOfProject]);
+            EditPacket editPacket = new EditPacket(GetPackets().ToArray()[packets.SelectedIndex], MainWindow.Projects[_indexOfProject]);
             editPacket.ShowDialog();
 
             LoadAllPackets();
 
             DbService.Save();
+        }
+
+        private void namePacket_KeyDown(object sender, KeyEventArgs e)
+        {
+            LoadAllPackets();
         }
     }
 }
