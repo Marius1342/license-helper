@@ -1,4 +1,5 @@
 ﻿using license_helper.Classes;
+using license_helper.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,12 @@ namespace license_helper.Pages
             }
 
             MainWindow.Navigate(new EditProject(projects.SelectedIndex));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Navigate(new Settings());
+            DbService.LoadProjects();
         }
     }
 }

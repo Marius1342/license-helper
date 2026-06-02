@@ -14,6 +14,11 @@ namespace license_helper.Classes
         public string ProjectUrl { get; set; }
         public string Version { get; set; }
         public string TemplateGuid { get; set; } = "";
+        public bool ExternalLoaded { get; set; } = false;
+        /// <summary>
+        /// Always gets overwritten by programm
+        /// </summary>
+        public string ExternalPath { get; set; } = "";
         public List<Packet> Projects { get; set; } = new List<Packet>();
 
         public static string ToJson(Project[] projects)

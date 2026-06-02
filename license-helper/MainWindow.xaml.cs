@@ -27,9 +27,16 @@ namespace license_helper
         public MainWindow()
         {
             InitializeComponent();
+            Properties.Settings.Default.Upgrade();
+            if (Properties.Settings.Default.FileLocations == null)
+            {
+                Properties.Settings.Default.FileLocations =
+                    new System.Collections.Specialized.StringCollection();
+            }
             _MainWindow = this;
             DbService.LoadProjects();
             Navigate(new license_helper.Pages.Start());
+            
         }
 
         public static void Navigate(Page p)
