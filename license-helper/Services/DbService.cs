@@ -12,7 +12,7 @@ namespace license_helper.Services
 {
     internal static class DbService
     {
-        private static string mFileJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.json");
+        public static readonly string mFileJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.json");
         public static void Save()
         {
             var arr = MainWindow.Projects.ToArray();
@@ -22,6 +22,11 @@ namespace license_helper.Services
             string[] groups = arr.Select(x => x.ExternalPath).Distinct().ToArray();
             foreach (var item in groups)
             {
+                if(File.Exists(item) == false)
+                {
+                    continue;
+                }
+
                 File.WriteAllText(item, Project.ToJson(arr.Where(x => x.ExternalPath == item).ToArray()));
             }
 

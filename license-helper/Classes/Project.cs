@@ -1,4 +1,5 @@
-﻿using System;
+﻿using license_helper.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace license_helper.Classes
         /// <summary>
         /// Always gets overwritten by programm
         /// </summary>
-        public string ExternalPath { get; set; } = "";
+        public string ExternalPath { get; set; } = DbService.mFileJson;
         public List<Packet> Projects { get; set; } = new List<Packet>();
 
         public static string ToJson(Project[] projects)
