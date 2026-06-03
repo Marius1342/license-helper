@@ -18,6 +18,12 @@ namespace license_helper.Services
 
             string[] files = Directory.GetFiles(mTemplateFolder, "*.ini");
 
+            if(files.Length == 0)
+            {
+                MessageBox.Show("No ini files for templates found");
+                return default(InIFile[]);
+            }
+
             List<InIFile> iniFiles = new List<InIFile>();
 
             foreach (var f in files)

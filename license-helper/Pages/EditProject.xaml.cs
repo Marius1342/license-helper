@@ -51,6 +51,7 @@ namespace license_helper.Pages
             _indexOfProject = indexOfProject;
 
             LoadAllPackets();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

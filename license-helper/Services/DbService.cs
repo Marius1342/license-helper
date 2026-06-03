@@ -22,7 +22,7 @@ namespace license_helper.Services
             string[] groups = arr.Select(x => x.ExternalPath).Distinct().ToArray();
             foreach (var item in groups)
             {
-                if(File.Exists(item) == false)
+                if (File.Exists(item) == false)
                 {
                     continue;
                 }
@@ -35,19 +35,18 @@ namespace license_helper.Services
         }
         public static void LoadProjects()
         {
-            if (File.Exists(mFileJson) == false)
+            if (File.Exists(mFileJson))
             {
-                return;
-            }
+                MainWindow.Projects = new List<Project>(10);
 
-            MainWindow.Projects = new List<Project>(10);
+                foreach (var item in Project.ToArrayFromJson(File.ReadAllText(mFileJson)))
+                {
+                    item.ExternalLoaded = false;
+                    item.ExternalPath = mFileJson;
 
-            foreach (var item in Project.ToArrayFromJson(File.ReadAllText(mFileJson)))
-            {
-                item.ExternalLoaded = false;
-                item.ExternalPath = mFileJson;
+                    MainWindow.Projects.Add(item);
+                }
 
-                MainWindow.Projects.Add(item);
             }
 
 

@@ -57,7 +57,7 @@ namespace license_helper.Pages
                 return;
             }
 
-            MessageBoxResult res = MessageBox.Show("Are our sure to delete this db refrence?", "?", MessageBoxButton.YesNo);
+            MessageBoxResult res = MessageBox.Show("Are you sure to delete this db refrence?", "?", MessageBoxButton.YesNo);
 
             if (res == MessageBoxResult.Yes)
             {
