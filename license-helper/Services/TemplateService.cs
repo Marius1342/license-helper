@@ -15,10 +15,18 @@ namespace license_helper.Services
         private static string mTemplateFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "templates");
         public static InIFile[] GetAllTempalte()
         {
+            string[] files = new string[0];
+            try
+            {
+                files = Directory.GetFiles(mTemplateFolder, "*.ini");
 
-            string[] files = Directory.GetFiles(mTemplateFolder, "*.ini");
-
-            if(files.Length == 0)
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error in GetAllTempalte: {ex.Message} {ex.InnerException}");
+                return default(InIFile[]);
+            }
+            if (files.Length == 0)
             {
                 MessageBox.Show("No ini files for templates found");
                 return default(InIFile[]);

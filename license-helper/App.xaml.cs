@@ -13,5 +13,15 @@ namespace license_helper
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            DispatcherUnhandledException += (s, ex) =>
+            {
+                MessageBox.Show(ex.Exception.StackTrace,ex.Exception.Message);
+                //ex.Handled = true;
+            };
+
+            base.OnStartup(e);
+        }
     }
 }
